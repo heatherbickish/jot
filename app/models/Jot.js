@@ -12,4 +12,16 @@ export class Jot {
     this.updatedAt = ''
 
   }
+
+  get jotListTemplate() {
+    return `
+    <div role="button" class="selectable">
+          <p>${this.title}</p>
+          <p>${this.body}</p>
+        </div>
+    `
+  }
+
+
+
 }
