@@ -1,4 +1,5 @@
 import { AppState } from "../AppState.js";
+import { jotService } from "../services/JotService.js";
 
 
 export class JotController {
@@ -15,8 +16,16 @@ export class JotController {
 
   }
 
+  drawActiveJotList() {
+    const activeJotListElm = document.getElementById('active-jot-list')
+    activeJotListElm.innerHTML = AppState.activeJotList.activeJotListTemplate
+  }
+
+  selectActiveJotList(jotId) {
+    console.log('🧠🧠🧠🧠', jotId);
+    jotService.selectActiveJotList(jotId)
 
 
-
+  }
 
 }

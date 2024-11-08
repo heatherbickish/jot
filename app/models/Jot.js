@@ -15,10 +15,21 @@ export class Jot {
 
   get jotListTemplate() {
     return `
-    <div role="button" class="selectable">
+        <div onclick="app.JotController.selectActiveJotList('${this.id}')" role="button" class="selectable">
           <p>${this.title}</p>
           <p>${this.body}</p>
         </div>
+    `
+  }
+
+  get activeJotListTemplate() {
+    return `
+    <div>
+      <h2>${this.title}</h2>
+        <p>${this.body}</p>
+        <p>${this.createdAt}</p>
+    </div>
+    
     `
   }
 
