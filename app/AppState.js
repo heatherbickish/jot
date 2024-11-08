@@ -5,7 +5,7 @@ import { createObservableProxy } from './utils/ObservableProxy.js'
 class ObservableAppState extends EventEmitter {
 
 
-  jot = [
+  jots = [
     new Jot({
       title: 'Christmas Treats',
       color: '',
@@ -26,7 +26,7 @@ class ObservableAppState extends EventEmitter {
     })
   ]
   /** @type {Jot} */
-  activeJotList = null
+  activeJot = null
 
 
 
@@ -36,5 +36,3 @@ class ObservableAppState extends EventEmitter {
 }
 
 export const AppState = createObservableProxy(new ObservableAppState())
-
-console.table(AppState.jot)

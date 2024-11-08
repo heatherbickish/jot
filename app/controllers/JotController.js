@@ -6,25 +6,36 @@ export class JotController {
   constructor() {
     console.log('🖋️');
     this.drawJotList()
+    AppState.on('activeJot', this.drawActiveJot)
+    AppState.on('jots', this.drawJotList)
   }
 
   drawJotList() {
-    console.log('🎨📃');
     const jotListElm = document.getElementById('jot-list')
     jotListElm.innerHTML = ''
-    AppState.jot.forEach(jotCard => jotListElm.innerHTML += jotCard.jotListTemplate)
+    AppState.jots.forEach(jotCard => jotListElm.innerHTML += jotCard.jotListTemplate)
 
   }
 
-  drawActiveJotList() {
+  drawActiveJot() {
     const activeJotListElm = document.getElementById('active-jot-list')
-    activeJotListElm.innerHTML = AppState.activeJotList.activeJotListTemplate
+    activeJotListElm.innerHTML = AppState.activeJot.activeJotListTemplate
   }
 
   selectActiveJotList(jotId) {
-    console.log('🧠🧠🧠🧠', jotId);
     jotService.selectActiveJotList(jotId)
+  }
 
+  createJot() {
+    event.preventDefault()
+    const formElm = event.target
+    const formData = {
+      title: formElm.title.value,
+      // color: formElm.color.value,
+      // createdAt: formElm.createdAt.value
+    }
+    jotService.createJot(formData)
+    // this.drawJotList()
 
   }
 

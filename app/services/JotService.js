@@ -1,16 +1,30 @@
 import { AppState } from "../AppState.js";
+import { Jot } from "../models/Jot.js";
 
 class JotSevice {
   selectActiveJotList(jotId) {
-    console.log('service');
-    const selectedJotList = AppState.jot.find(jot => jotId = jot.id)
-    console.log(selectedJotList);
-    AppState.activeJotList = selectedJotList
-
+    const selectedJotList = AppState.jots.find(jot => jotId == jot.id)
+    AppState.activeJot = selectedJotList
   }
+
+  createJot(formData) {
+    const createdJot = new Jot(formData)
+    AppState.jots.push(createdJot)
+    // AppState.activeJot = ''
+    console.log(AppState.jots);
+  }
+
+
+
+
 }
 
 
 
 
+
+
 export const jotService = new JotSevice
+
+
+

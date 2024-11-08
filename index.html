@@ -27,12 +27,14 @@
   <main class="container-fluid">
     <div class="row">
       <div class="col-md-4">
+        <form onsubmit="app.JotController.createJot()">
 
-        <i class="mdi mdi-circle-outline fs-1"></i>
-        <input type="text">
-        <label for=""></label>
-        <button class="btn btn-primary">Create +</button>
-        <hr>
+          <i class="mdi mdi-circle-outline fs-1"></i>
+          <input type="text" name="title" required>
+          <label for=""></label>
+          <button class="btn btn-primary">Create +</button>
+          <hr>
+        </form>
       </div>
     </div>
     <section class="row">
@@ -42,14 +44,14 @@
           <p>body</p>
         </div> -->
       </div>
-      <div class="col-md-8 bg-success">
+      <div class="col-md-7 bg-white rounded shadow p-5">
         <div class="row justify-content-center m-4">
           <div id="active-jot-list" class="col-md-8">
-            <div>
+            <!-- <div>
               <h2>title</h2>
               <p>body</p>
               <p>createdAt</p>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
