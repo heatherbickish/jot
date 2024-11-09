@@ -12,18 +12,30 @@ class JotSevice {
     const createdJot = new Jot(formData)
     AppState.jots.push(createdJot)
     // AppState.activeJot = ''
-    console.log(AppState.jots);
     this.saveJot()
   }
 
 
   saveJot() {
-    saveState('jots', AppState.jots)
+    let stringData = JSON.stringify(AppState.jots)
+    localStorage.setItem('jot_jots', stringData)
   }
 
   loadJot() {
-    AppState.jots = loadState('jots', [Jot])
+    let stringData = localStorage.getItem('jot_jots')
+    let jotsData = JSON.parse(stringData)
+    if (!jotsData) return
+    const jots = jotsData.map(jotData => new Jot(jotData))
+    AppState.jots = jots
   }
+
+  deleteJot(jotId) {
+    const jotToDelete = AppState.jots.find(jot => jot.id == jotId)
+    const indexToRemove = AppState.jots.indexOf(jotToDelete)
+    AppState.jots.splice(indexToRemove, 1)
+    this.saveJot()
+  }
+
 
 }
 
@@ -32,7 +44,7 @@ class JotSevice {
 
 
 
-export const jotService = new JotSevice
+export const jotService = new JotSevice()
 
 
 

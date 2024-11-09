@@ -8,32 +8,40 @@ export class Jot {
     this.title = data.title
     this.color = data.color
     this.body = data.body || ''
-    // this.createdAt = data.createdAt == undefined ? new Date() : new Date(data.createdAt)
-    // this.updatedAt = data.updatedAt == undefined ? new Date() : new Date (data.updatedAt)
+    this.createdAt = data.createdAt == undefined ? new Date() : new Date(data.createdAt)
+    this.updatedAt = data.updatedAt == undefined ? new Date() : new Date(data.updatedAt)
 
   }
 
-  get jotListTemplate() {
+  get JotListTemplate() {
     return `
-        <div onclick="app.JotController.selectActiveJotList('${this.id}')" role="button" class="selectable">
-          <p>${this.title}</p>
-          <p></p>
+        <div onclick="app.JotController.selectActiveJotList('${this.id}')" role="button" class="selectable border-start p-1 mb-3">
+          <h4 style="color: ${this.color}" class="mdi mdi-circle">${this.title}       <small class="fs-6 text-secondary">${this.CreatedAtDate}</small></h4>
+          
         </div>
     `
   }
 
-  get activeJotListTemplate() {
+  get ActiveJotListTemplate() {
     return `
     <div>
-      <h2>${this.title}</h2>
-      <form>
+      <h2 style="color: ${this.color}">${this.title}</h2>
+      <p>Created at: ${this.CreatedAtDate}</p>
+      <span>Updated at: ${this.UpdatedAtDate}</span>
+      <span><button class="btn btn-primary" title="Save ${this.title}">Save</button></span>
+      <span> <button onclick="app.JotController.deleteJot()" class="btn btn-danger" title="Delete ${this.title}">Delete</button></span>
       <textarea name="body" class="form-control" rows="20">${this.body}</textarea>
-      <button class="btn btn-primary">Save</button>
-      </form>
-        
     </div>
     
     `
+  }
+
+  get CreatedAtDate() {
+    return this.createdAt.toLocaleDateString('en-us', { year: '2-digit', day: '2-digit', month: '2-digit' })
+  }
+
+  get UpdatedAtDate() {
+    return this.updatedAt.toLocaleDateString('en-us', { hour: '2-digit', minute: '2-digit', year: 'numeric', day: '2-digit', month: 'short' })
   }
 
 
