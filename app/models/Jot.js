@@ -15,8 +15,8 @@ export class Jot {
 
   get JotListTemplate() {
     return `
-        <div onclick="app.JotController.selectActiveJotList('${this.id}')" role="button" class="selectable border-start p-1 mb-3">
-          <h4 style="color: ${this.color}" class="mdi mdi-circle">${this.title}       <small class="fs-6 text-secondary">${this.CreatedAtDate}</small></h4>
+        <div onclick="app.JotController.selectActiveJotList('${this.id}')" role="button" class="selectable border-start border-dark p-1 mb-3">
+          <h4 style="color: ${this.color}" class="mdi mdi-circle">${this.title}       <small class="fs-6 text-primary fw-bold">${this.CreatedAtDate}</small></h4>
           
         </div>
     `
@@ -28,9 +28,9 @@ export class Jot {
       <h2 style="color: ${this.color}">${this.title}</h2>
       <p>Created at: ${this.CreatedAtDate}</p>
       <span>Updated at: ${this.UpdatedAtDate}</span>
-      <span><button class="btn btn-primary" title="Save ${this.title}">Save</button></span>
-      <span> <button onclick="app.JotController.deleteJot()" class="btn btn-danger" title="Delete ${this.title}">Delete</button></span>
-      <textarea name="body" class="form-control" rows="20">${this.body}</textarea>
+      <span><button class="btn btn-primary mb-3" title="Save ${this.title}">Save</button></span>
+      <span> <button onclick="app.JotController.deleteJot()" class="btn btn-danger mb-3" title="Delete ${this.title}">Delete</button></span>
+      <textarea name="body" class="form-control bg-white" rows="20">${this.body}</textarea>
     </div>
     
     `

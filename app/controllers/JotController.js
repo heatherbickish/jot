@@ -34,8 +34,8 @@ export class JotController {
     const formData = {
       title: formElm.title.value,
       color: formElm.color.value,
-      // createdAt: formElm.createdAt.value
     }
+
     jotService.createJot(formData)
   }
 
@@ -43,7 +43,7 @@ export class JotController {
     event.preventDefault()
     const formElm = event.target
     let newText = formElm.body.value
-    jotService.selectActiveJotList(newText)
+    jotService.saveActiveJotList(newText)
   }
 
   deleteJot(jotId) {

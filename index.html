@@ -10,6 +10,9 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.0.96/css/materialdesignicons.min.css"
     integrity="sha512-fXnjLwoVZ01NUqS/7G5kAnhXNXat6v7e3M9PhoMHOTARUMCaf5qNO84r5x9AFf5HDzm3rEZD8sb/n6dZ19SzFA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Happy+Monkey&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style/main.css">
   <link rel="stylesheet" href="assets/style/style.css">
   <title>Jot</title>
@@ -31,7 +34,6 @@
         <form onsubmit="app.JotController.createJot()">
           <h3 class="d-flex justify-content-between mt-5 fs-4">Add a Jot<span id="jot-count" class="fw-bold">0</span>
           </h3>
-
           <div class="form-floating">
             <input id="title" type="text" name="title" minlength="3" maxlength="15" class="form-control" required>
             <label for="">Title</label>
@@ -43,6 +45,12 @@
           </div>
           <hr>
         </form>
+      </div>
+      <div class="col">
+        <div class="text-center m-5">
+          <h1><em>Start Jotting</em></h1>
+
+        </div>
       </div>
     </div>
 
@@ -64,8 +72,8 @@
 
 
       <!-- SECTION active jot -->
-      <div class="col-md-7 bg-white rounded shadow">
-        <form class="row justify-content-center m-4">
+      <div class="col-md-7 form rounded shadow ">
+        <form onsubmit="app.JotController.saveActiveJot()" class="row justify-content-center m-4">
           <div id="active-jot-list" class="">
             <!-- <div>
               <h2>title</h2>

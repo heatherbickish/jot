@@ -1,1 +1,8 @@
-/* BASIC STYLES HERE */
+body {
+  font-family: "Happy Monkey", system-ui;
+  background-color: #99cdff;
+}
+
+.form {
+  background-color: #E2F8F9;
+}

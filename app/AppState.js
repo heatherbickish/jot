@@ -7,7 +7,7 @@ class ObservableAppState extends EventEmitter {
 
   jots = [
     new Jot({
-      title: 'Christmas Treats',
+      title: 'Recipes',
       color: 'coral',
       body: 'Powder lollipop chocolate sweet roll jujubes cake pastry carrot cake. Wafer sesame snaps jelly icing chocolate biscuit tiramisu pudding jujubes. Halvah cake topping bear claw danish cookie danish chocolate bar. Sweet bonbon lollipop sweet wafer powder. Chocolate cake sugar plum marzipan jujubes dragée apple pie. Lollipop wafer fruitcake jujubes cupcake jelly-o jelly macaroon.',
       createdAt: '10/28/2024'

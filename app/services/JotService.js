@@ -3,6 +3,12 @@ import { Jot } from "../models/Jot.js";
 import { loadState, saveState } from "../utils/Store.js";
 
 class JotSevice {
+  saveActiveJotList(newText) {
+    const jot = AppState.activeJot
+    jot.body = newText
+    AppState.emit('activeJot')
+    this.saveJot()
+  }
   selectActiveJotList(jotId) {
     const selectedJotList = AppState.jots.find(jot => jotId == jot.id)
     AppState.activeJot = selectedJotList
