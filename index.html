@@ -24,19 +24,26 @@
     </nav>
   </header>
 
+  <!-- SECTION jot list -->
   <main class="container-fluid">
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-3">
         <form onsubmit="app.JotController.createJot()">
-
-          <i class="mdi mdi-circle-outline fs-1"></i>
-          <input type="text" name="title" required>
-          <label for=""></label>
-          <button class="btn btn-primary">Create +</button>
+          <h5 class="mt-5">Add a Jot</h5>
+          <div class="form-floating">
+            <input id="title" type="text" name="title" minlength="3" maxlength="15" class="form-control">
+            <label for="">Title</label>
+            <input type="color" class="mt-2 selectable" id="color">
+            <span class="mb-3 p-3">Choose your color</span>
+            <div class="mt-2">
+              <button class="btn btn-sm btn-primary">Create +</button>
+            </div>
+          </div>
           <hr>
         </form>
       </div>
     </div>
+
     <section class="row">
       <div id="jot-list" class="col-md-4">
         <!-- <div role="button" class="selectable">
@@ -44,6 +51,8 @@
           <p>body</p>
         </div> -->
       </div>
+
+      <!-- SECTION active jot -->
       <div class="col-md-7 bg-white rounded shadow p-5">
         <div class="row justify-content-center m-4">
           <div id="active-jot-list" class="col-md-8">
