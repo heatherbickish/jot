@@ -18,6 +18,7 @@ class JotSevice {
   createJot(formData) {
     const createdJot = new Jot(formData)
     AppState.jots.push(createdJot)
+    // AppState.activeJot = ''
     this.saveJot()
   }
 

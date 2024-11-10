@@ -30,7 +30,7 @@
   <!-- SECTION jot create title form -->
   <main class="container-fluid">
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-md-3 border m-3">
         <form onsubmit="app.JotController.createJot()">
           <h3 class="d-flex justify-content-between mt-5 fs-4">Add a Jot<span id="jot-count"
               class="fw-bold mdi mdi-pen">0</span>
@@ -41,15 +41,14 @@
             <input type="color" name="color" class="mt-2 selectable" id="jot-color">
             <span class="mb-3 p-3">Choose your color</span>
             <div class="mt-2">
-              <button class="btn btn-sm btn-primary">Create +</button>
+              <button class="btn btn-sm btn-primary mb-2">Create +</button>
             </div>
           </div>
-          <hr>
         </form>
       </div>
-      <div class="col">
-        <div class="text-center m-5">
-          <h1><em>Start Jotting</em></h1>
+      <div class="col m-5 p-5">
+        <div class=" m-5">
+          <h1><em>. . . Start Jotting</em></h1>
 
         </div>
       </div>
@@ -73,8 +72,9 @@
 
 
       <!-- SECTION active jot -->
-      <div class="col-md-7 form rounded shadow ">
-        <form onsubmit="app.JotController.saveActiveJot()" class="row justify-content-center m-4">
+      <div class="col-md-7 rounded  ">
+        <form onsubmit="app.JotController.saveActiveJot()"
+          class="rounded shadow form col-md-7 row justify-content-center m-4">
           <div id="active-jot-list" class="">
             <!-- <div>
               <h2>title</h2>

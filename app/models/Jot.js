@@ -4,7 +4,7 @@ import { generateId } from "../utils/GenerateId.js";
 
 export class Jot {
   constructor(data) {
-    this.id = data.id || generateId()
+    this.id = generateId()
     this.title = data.title
     this.color = data.color
     this.body = data.body || ''
