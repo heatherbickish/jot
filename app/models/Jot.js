@@ -4,7 +4,7 @@ import { generateId } from "../utils/GenerateId.js";
 
 export class Jot {
   constructor(data) {
-    this.id = generateId()
+    this.id = data.id || generateId()
     this.title = data.title
     this.color = data.color
     this.body = data.body || ''
@@ -28,8 +28,8 @@ export class Jot {
       <h2 style="color: ${this.color}">${this.title}</h2>
       <p>Created at: ${this.CreatedAtDate}</p>
       <span>Updated at: ${this.UpdatedAtDate}</span>
-      <span><button class="btn btn-primary mb-3" title="Save ${this.title}">Save</button></span>
-      <span> <button onclick="app.JotController.deleteJot()" class="btn btn-danger mb-3" title="Delete ${this.title}">Delete</button></span>
+      <span><button class="btn btn-primary mb-3" type="submit" title="Save ${this.title}">Save</button></span>
+      <span> <button onclick="app.JotController.deleteJot()" type="button" class="btn btn-danger mb-3" title="Delete ${this.title}">Delete</button></span>
       <textarea name="body" class="form-control bg-white" rows="20">${this.body}</textarea>
     </div>
     
@@ -41,7 +41,7 @@ export class Jot {
   }
 
   get UpdatedAtDate() {
-    return this.updatedAt.toLocaleDateString('en-us', { hour: '2-digit', minute: '2-digit', year: 'numeric', day: '2-digit', month: 'short' })
+    return this.updatedAt.toLocaleDateString('en-us', { hour: '2-digit', minute: '2-digit', second: '2-digit', year: 'numeric', day: '2-digit', month: 'short' })
   }
 
 

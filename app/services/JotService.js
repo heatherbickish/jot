@@ -6,8 +6,9 @@ class JotSevice {
   saveActiveJotList(newText) {
     const jot = AppState.activeJot
     jot.body = newText
-    AppState.emit('activeJot')
+    jot.updatedAt = new Date()
     this.saveJot()
+    AppState.emit('activeJot')
   }
   selectActiveJotList(jotId) {
     const selectedJotList = AppState.jots.find(jot => jotId == jot.id)
@@ -17,7 +18,6 @@ class JotSevice {
   createJot(formData) {
     const createdJot = new Jot(formData)
     AppState.jots.push(createdJot)
-    // AppState.activeJot = ''
     this.saveJot()
   }
 
